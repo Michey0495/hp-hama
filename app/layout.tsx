@@ -35,7 +35,52 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              name: "炉ばた 浜",
+              description:
+                "北海道釧路市の炉端焼き。備長炭で焼き上げる釧路産の新鮮魚介。",
+              url: "https://hp-hama.vercel.app",
+              telephone: "0154-64-6544",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "北大通13-1",
+                addressLocality: "釧路市",
+                addressRegion: "北海道",
+                addressCountry: "JP",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 42.975,
+                longitude: 144.3725,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                opens: "16:00",
+                closes: "23:00",
+              },
+              priceRange: "¥4,000〜¥5,000",
+              servesCuisine: ["炉端焼き", "居酒屋", "海鮮"],
+              acceptsReservations: "True",
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

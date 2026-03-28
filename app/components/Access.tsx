@@ -80,7 +80,7 @@ export default function Access() {
               }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.5!2d144.3725!3d42.975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDU4JzMwLjAiTiAxNDTCsDIyJzIxLjAiRQ!5e0!3m2!1sja!2sjp!4v1"
+                src="https://www.google.com/maps?q=%E5%8C%97%E6%B5%B7%E9%81%93%E9%87%A7%E8%B7%AF%E5%B8%82%E5%8C%97%E5%A4%A7%E9%80%9A13-1&output=embed&hl=ja"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(0.3) contrast(1.1)" }}
