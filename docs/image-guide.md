@@ -4,11 +4,13 @@
 
 ## 画像スロット一覧
 
-| # | 場所 | 現在の画像 | 推奨差し替え内容 |
-|---|------|-----------|----------------|
-| 1 | ヒーロー背景 (`Hero.tsx`) | Unsplash: grilled food | 店舗外観 or 看板写真 |
-| 2 | メニュー写真1 (`Menu.tsx`) | Unsplash: grilled seafood | 炉端焼きの料理写真 |
-| 3 | メニュー写真2 (`Menu.tsx`) | Unsplash: seafood | お刺身 or 一品料理の写真 |
+| # | 場所 | ファイル | 現在の画像 | 推奨差し替え内容 |
+|---|------|---------|-----------|----------------|
+| 1 | ヒーロー背景 | `app/components/Hero.tsx` | Unsplash: grilled food | 店舗外観 or 看板写真 |
+| 2 | メニュー写真1 | `app/menu/MenuPage.tsx` | Unsplash: grilled seafood | 炉端焼きの料理写真 |
+| 3 | メニュー写真2 | `app/menu/MenuPage.tsx` | Unsplash: seafood | お刺身 or 一品料理の写真 |
+| 4 | メニュー写真3 | `app/menu/MenuPage.tsx` | Unsplash: sake | 日本酒・ドリンクの写真 |
+| 5 | メニュー写真4 | `app/menu/MenuPage.tsx` | Unsplash: sashimi | 刺身盛り合わせの写真 |
 
 ## 差し替え手順
 

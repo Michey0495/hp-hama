@@ -1,28 +1,25 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
-  { href: "#concept", label: "こだわり" },
-  { href: "#menu", label: "お品書き" },
-  { href: "#access", label: "ご案内" },
+  { href: "/menu", label: "お品書き" },
+  { href: "/info", label: "店舗情報" },
+  { href: "/contact", label: "お問合せ" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const handleNavClick = (href: string) => {
-    setMenuOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <header
@@ -33,35 +30,29 @@ export default function Header() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+        <Link
+          href="/"
           className="text-xl md:text-2xl font-bold tracking-wider transition-opacity hover:opacity-70"
           style={{ fontFamily: "var(--font-kaisei)", color: "#F0EBE0" }}
         >
           浜
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(item.href);
-              }}
-              className="text-sm tracking-widest transition-colors hover:text-kinsui"
+              className={`text-sm tracking-widest transition-colors hover:text-kinsui ${
+                pathname === item.href ? "text-kinsui" : ""
+              }`}
               style={{
                 fontFamily: "var(--font-kaisei)",
-                color: "#F0EBE0",
+                color: pathname === item.href ? "#C9A84C" : "#F0EBE0",
               }}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <a
             href="tel:0154646544"
@@ -107,21 +98,18 @@ export default function Header() {
       >
         <nav className="flex flex-col items-center gap-6 py-8">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(item.href);
-              }}
+              onClick={() => setMenuOpen(false)}
               className="text-lg tracking-widest"
               style={{
                 fontFamily: "var(--font-kaisei)",
-                color: "#F0EBE0",
+                color: pathname === item.href ? "#C9A84C" : "#F0EBE0",
               }}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <a
             href="tel:0154646544"
